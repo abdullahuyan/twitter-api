@@ -9,6 +9,7 @@ import lombok.*;
 
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,6 +50,19 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Tweet> tweets;
+
+    public void addTweet(Tweet tweet){
+        if (tweet.getUser().equals(this)&&!tweets.contains(tweet))
+            tweets.add(tweet);
+    }
+
+    public void removeTweet(Tweet tweet){
+        tweets.remove(tweet);
+    }
+
+    public List<Tweet> getTweets(){
+        return Collections.unmodifiableList(this.tweets);
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,11 +41,50 @@ public class Tweet {
     @OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
+    public void addComment(Comment comment){
+        if (comment.getTweet().equals(this)&&!comments.contains(comment))
+            comments.add(comment);
+    }
+
+    public void removeComment(Comment comment){
+        comments.remove(comment);
+    }
+
+    public List<Comment> getComments(){
+        return Collections.unmodifiableList(this.comments);
+    }
+
     @OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
     private List<Like> likes;
 
+    public void addLikes(Like like){
+        if (like.getTweet().equals(this)&&!likes.contains(like))
+            likes.add(like);
+    }
+
+    public void removeLikes(Like like){
+        likes.remove(like);
+    }
+
+    public List<Like> getLikes(){
+        return Collections.unmodifiableList(this.likes);
+    }
+
     @OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
     private List<Retweet> retweets;
+
+    public void addRetweets(Retweet retweet){
+        if (retweet.getTweet().equals(this)&&!retweets.contains(retweet))
+            retweets.add(retweet);
+    }
+
+    public void removeRetweet(Retweet retweet){
+        retweets.remove(retweet);
+    }
+
+    public List<Retweet> getRetweets(){
+        return Collections.unmodifiableList(this.retweets);
+    }
 
     @Override
     public boolean equals(Object o) {
