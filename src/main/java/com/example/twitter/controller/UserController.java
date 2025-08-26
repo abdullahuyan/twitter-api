@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED) // 201
+    @ResponseStatus(HttpStatus.CREATED)
     public UserResponseDto create(@Validated @RequestBody UserRequestDto userRequestDto){
         return userService.create(userRequestDto);
     }
@@ -44,16 +44,13 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-
-
     public UserResponseDto update(@Positive @PathVariable("id") Long id,
                                         @Validated @RequestBody UserPatchRequestDto userPatchRequestDto){
         return userService.update(id, userPatchRequestDto);
     }
 
-
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT) // HTTP 204
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@Positive @PathVariable("id") Long id){
         userService.delete(id);
     }
