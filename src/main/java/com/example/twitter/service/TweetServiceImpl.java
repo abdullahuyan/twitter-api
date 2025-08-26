@@ -19,10 +19,10 @@ import java.util.Optional;
 public class TweetServiceImpl implements TweetService{
 
     @Autowired
-    private TweetRepository tweetRepository;
+    private final TweetRepository tweetRepository;
 
     @Autowired
-    private TweetMapper tweetMapper;
+    private final TweetMapper tweetMapper;
 
     @Override
     public List<TweetResponseDto> getAll() {

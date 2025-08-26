@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TweetController {
     @Autowired
-    private TweetService tweetService;
+    private final TweetService tweetService;
 
     @GetMapping
     public List<TweetResponseDto> getAll(){

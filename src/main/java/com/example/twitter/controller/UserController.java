@@ -19,7 +19,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @GetMapping
     public List<UserResponseDto> getAll(){
