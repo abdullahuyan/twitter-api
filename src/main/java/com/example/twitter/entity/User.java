@@ -44,6 +44,7 @@ public class User {
     @Size(max=100)
     private String password;
 
+    @Column(name="create_date")
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

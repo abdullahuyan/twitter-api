@@ -18,6 +18,7 @@ public class Retweet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="created_date")
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToOne

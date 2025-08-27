@@ -29,7 +29,9 @@ public class Comment {
     @Size(max = 300)
     private String content;
 
+    @Column(name="created_date")
     private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(name="updated_date")
     private LocalDateTime updatedAt = LocalDateTime.now();
 
     @ManyToOne

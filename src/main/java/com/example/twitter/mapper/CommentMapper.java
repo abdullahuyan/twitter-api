@@ -4,7 +4,9 @@ import com.example.twitter.dto.CommentPatchRequestDto;
 import com.example.twitter.dto.CommentRequestDto;
 import com.example.twitter.dto.CommentResponseDto;
 import com.example.twitter.entity.Comment;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CommentMapper {
     public Comment toEntity(CommentRequestDto commentRequestDto){
         Comment comment = new Comment();

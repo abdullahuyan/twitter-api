@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -31,7 +33,11 @@ public class Tweet {
     @Size(max = 300)
     private String content;
 
+    @CreationTimestamp
+    @Column(name = "create_date", nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+    @UpdateTimestamp
+    @Column(name = "update_date", nullable = false)
     private LocalDateTime updatedAt = LocalDateTime.now();
 
     @ManyToOne

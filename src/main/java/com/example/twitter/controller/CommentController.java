@@ -2,7 +2,6 @@ package com.example.twitter.controller;
 
 import com.example.twitter.dto.*;
 import com.example.twitter.service.CommentService;
-import com.example.twitter.service.TweetService;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

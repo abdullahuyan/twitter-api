@@ -2,10 +2,7 @@ package com.example.twitter.service;
 
 import com.example.twitter.dto.RetweetRequestDto;
 import com.example.twitter.dto.RetweetResponseDto;
-import com.example.twitter.dto.UserRequestDto;
-import com.example.twitter.entity.Comment;
 import com.example.twitter.entity.Retweet;
-import com.example.twitter.exception.CommentNotFoundException;
 import com.example.twitter.exception.RetweetNotFoundException;
 import com.example.twitter.mapper.RetweetMapper;
 import com.example.twitter.repository.RetweetRepository;
